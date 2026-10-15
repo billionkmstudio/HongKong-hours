@@ -1,5 +1,0 @@
-{
-  "rewrites": [
-    { "source": "/", "has": [{ "type": "host", "value": "hongkong-hours.billionstudio.co.uk" }], "destination": "/hongkong/index.html" }
-  ]
-}
