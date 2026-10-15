@@ -70,6 +70,7 @@ window.CITY={
       var x=b[0],z=b[1],W=b[2],Dp=b[3],rot=b[4],hu=b[5],y=b[6],nm=b[7];
       named[nm]=b;
       if(SKIP.test(nm))return;
+      if(!nm&&Math.abs(x-35.7)<1.5&&Math.abs(z+14.2)<1.5)return;   /* Space Museum: hand-built below */
       var by=Math.max(y-2.4,0.05),h=hu+(y-by);
       var R=rnd(),top=by+h;
       inst.push([x,by,z,W,h,Dp,R,0,rot]);
@@ -185,6 +186,15 @@ window.CITY={
       mast.cc=[b[0],y0+3,b[1]];
       var t=named['尖沙咀鐘樓 Tsim Sha Tsui Clock Tower Tsim Sha Tsui Clock Tower'];
       if(t){var tg=group(t[0],t[1],Math.max(t[6],.12),t[4]);box(.75,4.4,.75,mat(0xa4503a,{r:.8}),0,2.2,0,tg);cyl(0,.7,1.1,4,mat(0x5a4a42,{r:.7}),0,4.9,0,tg).rotation.y=Math.PI/4}
+    })();
+
+    /* ===== Hong Kong Space Museum: white egg dome beside the Cultural Centre ===== */
+    (function(){
+      var x=35.7,z=-14.2,y0=Math.max(terr(x,z),.12),g=group(x,z,y0,.3);
+      box(6.4,1,5.4,mat(0xd9d4c8,{r:.7}),0,.5,0,g);
+      var dm=mat(0xf1f2f2,{r:.35,m:.25,env:1.2});
+      var dome=new THREE.SphereGeometry(1,32,16,0,Math.PI*2,0,Math.PI/2);
+      var d=mesh(dome,dm,0,1,0,g);d.scale.set(2.9,2.4,2.7);d.rotation.z=-.2;
     })();
 
     /* ===== neon signs ===== */
